@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ device.name }}</title>
+</head>
+<body>
+    <h1>{{ device.name }}</h1>
+    <img src="{{ device.image.url }}" alt="{{ device.name }}" style="width:300px;">
+    <p>Manufacturer: {{ device.manufacturer }}</p>
+    <p>Price: ${{ device.price }}</p>
+    <p>Release Date: {{ device.release_date }}</p>
+    <p>Category: {{ device.category.name }}</p>
+    <p>Features:</p>
+    <ul>
+        {% for feature in device.features.all %}
+            <li>{{ feature.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'device_list' %}">Back to Devices</a>
+</body>
+</html>
